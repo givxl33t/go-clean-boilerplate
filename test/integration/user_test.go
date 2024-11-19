@@ -21,7 +21,7 @@ func (s *e2eTestSuite) TestUserRegisterSuccess() {
 	bodyJSON, err := json.Marshal(requestBody)
 	s.Assert().NoError(err)
 
-	request := httptest.NewRequest(http.MethodPost, "/api/users", strings.NewReader(string(bodyJSON)))
+	request := httptest.NewRequest(http.MethodPost, "/api/v1/users", strings.NewReader(string(bodyJSON)))
 	request.Header.Add("content-type", "application/json")
 
 	response, err := s.App.Test(request)
@@ -48,7 +48,7 @@ func (s *e2eTestSuite) TestUserRegisterFailedValidation() {
 	bodyJSON, err := json.Marshal(requestBody)
 	s.Assert().NoError(err)
 
-	request := httptest.NewRequest(http.MethodPost, "/api/users", strings.NewReader(string(bodyJSON)))
+	request := httptest.NewRequest(http.MethodPost, "/api/v1/users", strings.NewReader(string(bodyJSON)))
 	request.Header.Add("content-type", "application/json")
 
 	response, err := s.App.Test(request)
@@ -77,7 +77,7 @@ func (s *e2eTestSuite) TestUserRegisterFailedUserAlreadyExists() {
 	bodyJSON, err := json.Marshal(requestBody)
 	s.Assert().NoError(err)
 
-	request := httptest.NewRequest(http.MethodPost, "/api/users", strings.NewReader(string(bodyJSON)))
+	request := httptest.NewRequest(http.MethodPost, "/api/v1/users", strings.NewReader(string(bodyJSON)))
 	request.Header.Add("content-type", "application/json")
 
 	response, err := s.App.Test(request)
@@ -105,7 +105,7 @@ func (s *e2eTestSuite) TestUserLoginSuccess() {
 	bodyJSON, err := json.Marshal(requestBody)
 	s.Assert().NoError(err)
 
-	request := httptest.NewRequest(http.MethodPost, "/api/users/_login", strings.NewReader(string(bodyJSON)))
+	request := httptest.NewRequest(http.MethodPost, "/api/v1/users/login", strings.NewReader(string(bodyJSON)))
 	request.Header.Add("content-type", "application/json")
 
 	response, err := s.App.Test(request)
@@ -134,7 +134,7 @@ func (s *e2eTestSuite) TestUserLoginFailedUserNotFound() {
 	bodyJSON, err := json.Marshal(requestBody)
 	s.Assert().NoError(err)
 
-	request := httptest.NewRequest(http.MethodPost, "/api/users/_login", strings.NewReader(string(bodyJSON)))
+	request := httptest.NewRequest(http.MethodPost, "/api/v1/users/login", strings.NewReader(string(bodyJSON)))
 	request.Header.Add("content-type", "application/json")
 
 	response, err := s.App.Test(request)
@@ -162,7 +162,7 @@ func (s *e2eTestSuite) TestUserLoginFailedPasswordNotMatch() {
 	bodyJSON, err := json.Marshal(requestBody)
 	s.Assert().NoError(err)
 
-	request := httptest.NewRequest(http.MethodPost, "/api/users/_login", strings.NewReader(string(bodyJSON)))
+	request := httptest.NewRequest(http.MethodPost, "/api/v1/users/login", strings.NewReader(string(bodyJSON)))
 	request.Header.Add("content-type", "application/json")
 
 	response, err := s.App.Test(request)
@@ -190,7 +190,7 @@ func (s *e2eTestSuite) TestUserLoginFailedValidation() {
 	bodyJSON, err := json.Marshal(requestBody)
 	s.Assert().NoError(err)
 
-	request := httptest.NewRequest(http.MethodPost, "/api/users/_login", strings.NewReader(string(bodyJSON)))
+	request := httptest.NewRequest(http.MethodPost, "/api/v1/users/login", strings.NewReader(string(bodyJSON)))
 	request.Header.Add("content-type", "application/json")
 
 	response, err := s.App.Test(request)
@@ -210,7 +210,7 @@ func (s *e2eTestSuite) TestUserLoginFailedValidation() {
 func (s *e2eTestSuite) TestUserCurrentSuccess() {
 	token := s.GetTokenUser()
 
-	request := httptest.NewRequest(http.MethodGet, "/api/users/_current", nil)
+	request := httptest.NewRequest(http.MethodGet, "/api/v1/users/current", nil)
 	request.Header.Add("content-type", "application/json")
 	request.Header.Add("Authorization", "Bearer "+token)
 
@@ -232,7 +232,7 @@ func (s *e2eTestSuite) TestUserCurrentSuccess() {
 }
 
 func (s *e2eTestSuite) TestUserCurrentFailedUnauthorized() {
-	request := httptest.NewRequest(http.MethodGet, "/api/users/_current", nil)
+	request := httptest.NewRequest(http.MethodGet, "/api/v1/users/current", nil)
 	request.Header.Add("content-type", "application/json")
 
 	response, err := s.App.Test(request)
@@ -260,7 +260,7 @@ func (s *e2eTestSuite) TestUserUpdateSuccess() {
 	bodyJSON, err := json.Marshal(requestBody)
 	s.Assert().NoError(err)
 
-	request := httptest.NewRequest(http.MethodPatch, "/api/users/_current", strings.NewReader(string(bodyJSON)))
+	request := httptest.NewRequest(http.MethodPatch, "/api/v1/users/current", strings.NewReader(string(bodyJSON)))
 	request.Header.Add("content-type", "application/json")
 	request.Header.Add("Authorization", "Bearer "+token)
 
@@ -287,7 +287,7 @@ func (s *e2eTestSuite) TestUserUpdateFailedUnauthorized() {
 	bodyJSON, err := json.Marshal(requestBody)
 	s.Assert().NoError(err)
 
-	request := httptest.NewRequest(http.MethodPatch, "/api/users/_current", strings.NewReader(string(bodyJSON)))
+	request := httptest.NewRequest(http.MethodPatch, "/api/v1/users/current", strings.NewReader(string(bodyJSON)))
 	request.Header.Add("content-type", "application/json")
 
 	response, err := s.App.Test(request)

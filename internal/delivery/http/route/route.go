@@ -6,11 +6,10 @@ import (
 )
 
 func RegisterRoute(app *fiber.App, userHandler *handler.UserHandler, authMiddleware fiber.Handler) {
-	publicRouter := app.Group("/api")
-	publicRouter.Post("/users", userHandler.Register)
-	publicRouter.Post("/users/_login", userHandler.Login)
+	prefixRouter := app.Group("/api/v1")
 
-	protectedRouter := app.Group("/api", authMiddleware)
-	protectedRouter.Get("/users/_current", userHandler.Current)
-	protectedRouter.Patch("/users/_current", userHandler.Update)
+	prefixRouter.Post("/users", userHandler.Register)
+	prefixRouter.Post("/users/login", userHandler.Login)
+	prefixRouter.Get("/users/current", authMiddleware, userHandler.Current)
+	prefixRouter.Patch("/users/current", authMiddleware, userHandler.Update)
 }
