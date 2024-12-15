@@ -6,11 +6,11 @@ import (
 
 	"golang.org/x/crypto/bcrypt"
 
-	"github.com/givxl33t/go-clean-boilerplate/internal/domain"
-	"github.com/givxl33t/go-clean-boilerplate/internal/exception"
-	"github.com/givxl33t/go-clean-boilerplate/internal/model"
-	"github.com/givxl33t/go-clean-boilerplate/internal/model/mapper"
-	"github.com/givxl33t/go-clean-boilerplate/internal/repository"
+	"github.com/givxl33t/go-fiber-boilerplate/internal/domain"
+	"github.com/givxl33t/go-fiber-boilerplate/internal/model"
+	"github.com/givxl33t/go-fiber-boilerplate/internal/model/mapper"
+	"github.com/givxl33t/go-fiber-boilerplate/internal/repository"
+	"github.com/givxl33t/go-fiber-boilerplate/pkg/exception"
 	"github.com/go-playground/validator/v10"
 	"github.com/golang-jwt/jwt/v5"
 	"github.com/sirupsen/logrus"

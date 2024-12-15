@@ -3,7 +3,7 @@ package infrastructure
 import (
 	"time"
 
-	"github.com/givxl33t/go-clean-boilerplate/internal/exception"
+	"github.com/givxl33t/go-fiber-boilerplate/pkg/exception"
 	"github.com/gofiber/fiber/v2"
 	"github.com/gofiber/fiber/v2/middleware/recover"
 	"github.com/spf13/viper"

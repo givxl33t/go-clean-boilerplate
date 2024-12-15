@@ -13,7 +13,7 @@ import (
 	context "context"
 	reflect "reflect"
 
-	domain "github.com/givxl33t/go-clean-boilerplate/internal/domain"
+	domain "github.com/givxl33t/go-fiber-boilerplate/internal/domain"
 	gomock "go.uber.org/mock/gomock"
 )
 

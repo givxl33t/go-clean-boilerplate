@@ -8,7 +8,7 @@ import (
 	"net/http/httptest"
 	"strings"
 
-	"github.com/givxl33t/go-clean-boilerplate/internal/model"
+	"github.com/givxl33t/go-fiber-boilerplate/internal/model"
 )
 
 func (s *e2eTestSuite) TestUserRegisterSuccess() {

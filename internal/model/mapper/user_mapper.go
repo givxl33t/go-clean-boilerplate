@@ -1,8 +1,8 @@
 package mapper
 
 import (
-	"github.com/givxl33t/go-clean-boilerplate/internal/domain"
-	"github.com/givxl33t/go-clean-boilerplate/internal/model"
+	"github.com/givxl33t/go-fiber-boilerplate/internal/domain"
+	"github.com/givxl33t/go-fiber-boilerplate/internal/model"
 )
 
 func ToUserResponse(user *domain.User) *model.UserResponse {

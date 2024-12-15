@@ -15,23 +15,22 @@ ENV_LOCAL_TEST=\
 				JWT_SECRET_KEY=secretkey
 
 test.unit:
-				go test ./test/unit -v
-
+				APP_ENV=test go test ./test/unit -v -coverprofile=./coverage/unit-coverage.out -coverpkg=github.com/givxl33t/go-fiber-boilerplate/...
 test.integration:
-				$(ENV_LOCAL_TEST) go test ./test/integration -v
+				APP_ENV=test $(ENV_LOCAL_TEST) go test ./test/integration -v -coverprofile=./coverage/integration-coverage.out -coverpkg=github.com/givxl33t/go-fiber-boilerplate/...
 
 include .env
 
 DATABASE_URL="mysql://$(DB_USER):$(DB_PASSWORD)@tcp($(DB_HOST):$(DB_PORT))/$(DB_NAME)"
 
 migrate.create:
-				migrate create -ext sql -dir db/migrations $(name)
+				migrate create -ext sql -dir database/migrations $(name)
 
 migrate.up:
-				migrate -database $(DATABASE_URL) -path db/migrations up
+				migrate -database $(DATABASE_URL) -path database/migrations up
 
 migrate.down:
-				migrate -database $(DATABASE_URL) -path db/migrations down
+				migrate -database $(DATABASE_URL) -path database/migrations down
 
 migrate.force:
-				migrate -database $(DATABASE_URL) -path db/migrations force $(version)
+				migrate -database $(DATABASE_URL) -path database/migrations force $(version)

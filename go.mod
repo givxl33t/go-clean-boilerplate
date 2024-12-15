@@ -1,4 +1,4 @@
-module github.com/givxl33t/go-clean-boilerplate
+module github.com/givxl33t/go-fiber-boilerplate
 
 go 1.23.1
 

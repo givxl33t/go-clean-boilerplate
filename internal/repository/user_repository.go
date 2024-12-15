@@ -3,7 +3,7 @@ package repository
 import (
 	"context"
 
-	"github.com/givxl33t/go-clean-boilerplate/internal/domain"
+	"github.com/givxl33t/go-fiber-boilerplate/internal/domain"
 	"gorm.io/gorm"
 )
 

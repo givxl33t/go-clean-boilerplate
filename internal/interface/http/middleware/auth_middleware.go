@@ -3,8 +3,8 @@ package middleware
 import (
 	"strings"
 
-	"github.com/givxl33t/go-clean-boilerplate/internal/model"
-	"github.com/givxl33t/go-clean-boilerplate/internal/usecase"
+	"github.com/givxl33t/go-fiber-boilerplate/internal/model"
+	"github.com/givxl33t/go-fiber-boilerplate/internal/usecase"
 	"github.com/gofiber/fiber/v2"
 	"github.com/sirupsen/logrus"
 )

@@ -1,7 +1,7 @@
 package route
 
 import (
-	"github.com/givxl33t/go-clean-boilerplate/internal/delivery/http/handler"
+	"github.com/givxl33t/go-fiber-boilerplate/internal/interface/http/handler"
 	"github.com/gofiber/fiber/v2"
 )
 

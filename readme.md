@@ -1,5 +1,5 @@
 # Go Clean Architecture Boilerplate
-This repository serves as a boilerplate for building a Go project using the **Clean Architecture** principles and a commonly adopted Golang project layout.
+This repository serves as a boilerplate for building a Go project using the commonly adopted Golang project layout and clean code principles (**NOTE**: The structure may seem like an implementation of clean architecture, but in reality this project is a far cry from an actual clean architecture concept and principles).
 
 ## Features
 This boilerplate includes the following libraries and tools:
@@ -35,7 +35,7 @@ This project follows a modular and clean architecture design. Below is an explan
 
 ## Installations
 ```
-git clone https://github.com/givxl33t/go-clean-boilerplate.git
+git clone https://github.com/givxl33t/go-fiber-boilerplate.git
 ```
 
 ```
@@ -49,7 +49,7 @@ cp .env.example .env
 or using [gonew](https://pkg.go.dev/golang.org/x/tools/cmd/gonew)
 
 ```
-gonew github.com/givxl33t/go-clean-boilerplate github.com/<username>/<your-repo>
+gonew github.com/givxl33t/go-fiber-boilerplate github.com/<username>/<your-repo>
 ```
 ## Run
 ```
