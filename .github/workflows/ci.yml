@@ -14,6 +14,8 @@ jobs:
         env:
           MYSQL_ROOT_PASSWORD: ""
           MYSQL_DATABASE: go_api_boilerplate_test
+          MYSQL_USER: testuser
+          MYSQL_PASSWORD: testpassword
         ports:
           - 3306:3306
         options: >-
@@ -21,6 +23,22 @@ jobs:
           --health-interval=10s
           --health-timeout=5s
           --health-retries=3
+
+    env:
+      APP_NAME: "Go API Boilerplate"
+      APP_PORT: 3000
+      APP_PREFORK: false
+      APP_TIMEOUT: 10
+      DB_USER: testuser
+      DB_PASSWORD: testpassword
+      DB_HOST: localhost
+      DB_PORT: 3306
+      DB_NAME: go_api_boilerplate_test
+      POOL_IDLE: 5
+      POOL_MAX: 100
+      POOL_LIFETIME: 3000
+      LOG_LEVEL: 6
+      JWT_SECRET_KEY: secretkey
 
     runs-on: ubuntu-latest
     strategy:
