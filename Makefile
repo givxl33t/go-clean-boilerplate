@@ -19,7 +19,9 @@ test.unit:
 test.integration:
 				APP_ENV=test $(ENV_LOCAL_TEST) go test ./test/integration -v -coverprofile=./coverage/integration-coverage.out -coverpkg=github.com/givxl33t/go-fiber-boilerplate/...
 
-include .env
+ifneq (,$(wildcard .env))
+    include .env
+endif
 
 DATABASE_URL="mysql://$(DB_USER):$(DB_PASSWORD)@tcp($(DB_HOST):$(DB_PORT))/$(DB_NAME)"
 

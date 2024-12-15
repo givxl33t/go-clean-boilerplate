@@ -12,10 +12,8 @@ jobs:
       mysql:
         image: mysql:8.0
         env:
-          MYSQL_ROOT_PASSWORD: root
-          MYSQL_USER: testuser
-          MYSQL_PASSWORD: testpassword
-          MYSQL_DATABASE: testdb
+          MYSQL_ROOT_PASSWORD: ""
+          MYSQL_DATABASE: go_api_boilerplate_test
         ports:
           - 3306:3306
         options: >-
@@ -52,9 +50,3 @@ jobs:
         run: make test.unit
       - name: Run integration tests
         run: make test.integration
-        env:
-          DB_HOST: 127.0.0.1
-          DB_PORT: 3306
-          DB_USER: testuser
-          DB_PASSWORD: testpassword
-          DB_NAME: testdb
