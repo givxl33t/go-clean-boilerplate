@@ -32,7 +32,7 @@ jobs:
       APP_TIMEOUT: 10
       DB_USER: testuser
       DB_PASSWORD: testpassword
-      DB_HOST: localhost
+      DB_HOST: 127.0.0.1
       DB_PORT: 3306
       DB_NAME: go_api_boilerplate_test
       POOL_IDLE: 5
