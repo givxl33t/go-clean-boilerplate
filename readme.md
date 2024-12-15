@@ -12,7 +12,7 @@ This boilerplate includes the following libraries and tools:
 - [**Migrate**](https://github.com/golang-migrate/migrate) – Database migration tool.
 
 ## Project Structure
-This project follows a modular and clean architecture design. Below is an explanation of its directory structure:
+This project follows a modular and clean project structure. Below is an explanation of its directory structure:
 
 ### Core Directories
 - **`cmd/`**: Contains the main entry point(s) of the application, e.g., `main.go`.
