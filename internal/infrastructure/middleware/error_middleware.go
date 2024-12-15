@@ -1,22 +1,10 @@
-package exception
+package middleware
 
 import (
 	"fmt"
 
 	"github.com/go-playground/validator/v10"
 	"github.com/gofiber/fiber/v2"
-)
-
-// define error here
-var (
-	// error user domain
-	ErrUserNotFound         = fiber.NewError(fiber.StatusNotFound, "user is not found")
-	ErrUserAlreadyExist     = fiber.NewError(fiber.StatusBadRequest, "username already exist")
-	ErrUserPasswordMismatch = fiber.NewError(fiber.StatusBadRequest, "password do not match")
-	ErrUserUnauthorized     = fiber.NewError(fiber.StatusUnauthorized, "user unauthorized")
-
-	// generic error
-	ErrInternalServerError = fiber.ErrInternalServerError
 )
 
 func NewErrorHandler() fiber.ErrorHandler {

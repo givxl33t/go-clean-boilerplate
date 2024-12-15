@@ -8,8 +8,8 @@ import (
 
 	"github.com/givxl33t/go-fiber-boilerplate/config"
 	"github.com/givxl33t/go-fiber-boilerplate/internal/infrastructure"
+	"github.com/givxl33t/go-fiber-boilerplate/internal/infrastructure/middleware"
 	"github.com/givxl33t/go-fiber-boilerplate/internal/interface/http/handler"
-	"github.com/givxl33t/go-fiber-boilerplate/internal/interface/http/middleware"
 	"github.com/givxl33t/go-fiber-boilerplate/internal/interface/http/route"
 	"github.com/givxl33t/go-fiber-boilerplate/internal/repository"
 	"github.com/givxl33t/go-fiber-boilerplate/internal/usecase"

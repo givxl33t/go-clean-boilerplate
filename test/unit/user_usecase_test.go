@@ -5,10 +5,10 @@ import (
 	"testing"
 
 	"github.com/givxl33t/go-fiber-boilerplate/config"
+	"github.com/givxl33t/go-fiber-boilerplate/internal/common/exception"
 	"github.com/givxl33t/go-fiber-boilerplate/internal/domain"
 	"github.com/givxl33t/go-fiber-boilerplate/internal/model"
 	"github.com/givxl33t/go-fiber-boilerplate/internal/usecase"
-	"github.com/givxl33t/go-fiber-boilerplate/pkg/exception"
 	"github.com/givxl33t/go-fiber-boilerplate/test/unit/mocks"
 	"github.com/go-playground/validator/v10"
 	"github.com/sirupsen/logrus"

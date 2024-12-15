@@ -3,7 +3,7 @@ package infrastructure
 import (
 	"time"
 
-	"github.com/givxl33t/go-fiber-boilerplate/pkg/exception"
+	"github.com/givxl33t/go-fiber-boilerplate/internal/infrastructure/middleware"
 	"github.com/gofiber/fiber/v2"
 	"github.com/gofiber/fiber/v2/middleware/recover"
 	"github.com/spf13/viper"
@@ -12,7 +12,7 @@ import (
 func NewFiber(config *viper.Viper) *fiber.App {
 	app := fiber.New(fiber.Config{
 		AppName:      config.GetString("APP_NAME"),
-		ErrorHandler: exception.NewErrorHandler(),
+		ErrorHandler: middleware.NewErrorHandler(),
 		Prefork:      config.GetBool("APP_PREFORK"),
 		WriteTimeout: config.GetDuration("APP_TIMEOUT") * time.Second,
 		ReadTimeout:  config.GetDuration("APP_TIMEOUT") * time.Second,
