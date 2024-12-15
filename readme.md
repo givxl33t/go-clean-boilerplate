@@ -1,5 +1,5 @@
 # Go & Fiber Clean Code Boilerplate
-This repository serves as a boilerplate for building a Go project using the commonly adopted Golang project layout and clean code principles (No, this is not a clean architecture implementation!).
+This repository serves as a boilerplate for building a Go project using the commonly adopted Golang project layout and clean code principles (NOTE: The structure may seem like i've just implemented clean architecture, but really this project is still FAR from an actual clean architecture implementation).
 
 ## Features
 This boilerplate includes the following libraries and tools:
