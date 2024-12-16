@@ -23,8 +23,6 @@ services:
       MYSQL_PASSWORD: testpassword
     ports:
       - 3307:3306
-    volumes:
-      - .:/db
     healthcheck:
       test: ["CMD", "mysqladmin", "ping", "-h", "localhost"]
       interval: 10s
