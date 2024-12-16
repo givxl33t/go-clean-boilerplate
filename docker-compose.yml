@@ -1,0 +1,48 @@
+version: '3.9'
+
+services:
+  go_fiber_boiler:
+    container_name: go_fiber_boiler
+    image: romenzonez/gofiber-app:latest
+    restart: always
+    ports:
+      - 3001:3000
+    depends_on:
+      go_fiber_boiler_db:
+        condition: service_healthy
+    env_file:
+      - .env.docker
+
+  go_fiber_boiler_db:
+    container_name: go_fiber_boiler_db
+    image: mysql:8.0
+    environment:
+      MYSQL_ALLOW_EMPTY_PASSWORD: 1
+      MYSQL_DATABASE: go_api_boilerplate
+      MYSQL_USER: testuser
+      MYSQL_PASSWORD: testpassword
+    ports:
+      - 3307:3306
+    volumes:
+      - .:/db
+    healthcheck:
+      test: ["CMD", "mysqladmin", "ping", "-h", "localhost"]
+      interval: 10s
+      timeout: 5s
+      retries: 3
+      start_period: 10s
+
+  go_fiber_boiler_migration:
+    container_name: go_fiber_boiler_migration_runner
+    image: migrate/migrate
+    depends_on:
+      go_fiber_boiler_db:
+        condition: service_healthy
+    volumes:
+      - ./database/migrations:/migrations
+    command: [
+      "-path", "/migrations",
+      "-database", "mysql://testuser:testpassword@tcp(go_fiber_boiler_db:3306)/go_api_boilerplate",
+      "up"
+    ]
+

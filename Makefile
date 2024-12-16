@@ -14,6 +14,9 @@ ENV_LOCAL_TEST=\
 				LOG_LEVEL=6 \
 				JWT_SECRET_KEY=secretkey
 
+build:
+				go build -o fiber-app ./cmd/web
+
 test.unit:
 				APP_ENV=test go test ./test/unit -v -coverprofile=./coverage/unit-coverage.out -coverpkg=github.com/givxl33t/go-fiber-boilerplate/internal/...
 test.integration:

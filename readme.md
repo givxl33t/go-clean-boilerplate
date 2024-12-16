@@ -1,4 +1,4 @@
-# Go Clean Architecture Boilerplate
+# Go Fiber Boilerplate
 This repository serves as a boilerplate for building a Go project using the commonly adopted Golang project layout and clean code principles (**NOTE**: The structure may seem like an implementation of clean architecture, but in reality this project is a far cry from an actual clean architecture concept and principles).
 
 ## Features
@@ -16,19 +16,18 @@ This project follows a modular and clean project structure. Below is an explanat
 
 ### Core Directories
 - **`cmd/`**: Contains the main entry point(s) of the application, e.g., `main.go`.
-- **`config/`**: Stores configuration files and related logic.
-- **`docs/`**: Holds project documentation files.
+- **`config/`**: Stores logic to handle configuration files (e.g .env).
+- **`docs/`**: Holds project documentation files. (**TODO**)
 - **`internal/`**: Contains internal-only application code.
 
 ### Application-Specific Directories
-- **`infrastructure/`**: Frameworks and driver layer (e.g., database connection, logging).
-- **`delivery/`**: Contains data delivery mechanisms such as HTTP handlers or RPC implementations.
+- **`infrastructure/`**: Frameworks and driver layer (e.g., database connection, logging, middlewares, etc).
+- **`interface/`**: Contains data delivery mechanisms such as HTTP handlers or RPC implementations.
 - **`domain/`**: Defines core domain models and entities.
 - **`repository/`**: Implements data access (data layer) logic.
 - **`usecase/`**: Contains business logic and application use cases.
-- **`mapper/`**: Handles mapping between different data structures.
-- **`model/`**: Contains request/response models and shared data structures.
-- **`exception/`**: Manages error handling across the application.
+- **`model/`**: Contains data transfer objects between application layers (e.g request/response object).
+- **`common/`**: Manages shared code logic and types across application (e.g exceptions).
 
 ### Testing
 - **`test/`**: Contains unit tests, integration tests, and test utilities.
