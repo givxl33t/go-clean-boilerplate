@@ -17,7 +17,7 @@ This project follows a modular and clean project structure. Below is an explanat
 ### Core Directories
 - **`cmd/`**: Contains the main entry point(s) of the application, e.g., `main.go`.
 - **`config/`**: Stores logic to handle configuration files (e.g .env).
-- **`docs/`**: Holds project documentation files. (**TODO**)
+- **`docs/`**: Holds project documentation files.
 - **`internal/`**: Contains internal-only application code.
 
 ### Application-Specific Directories

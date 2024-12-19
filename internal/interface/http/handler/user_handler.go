@@ -19,6 +19,15 @@ func NewUserHandler(userUsecase usecase.UserUsecase, log *logrus.Logger) *UserHa
 	}
 }
 
+// Register godoc
+// @Summary Register a new user
+// @Description Registers a new user with the given details.
+// @Tags Users
+// @Accept json
+// @Produce json
+// @Param request body model.RegisterUserRequest true "User Registration Request"
+// @Success 201 {object} model.UserResponse
+// @Router /users [post]
 func (h *UserHandler) Register(c *fiber.Ctx) error {
 	registerUserRequest := new(model.RegisterUserRequest)
 	if err := c.BodyParser(registerUserRequest); err != nil {
@@ -39,6 +48,15 @@ func (h *UserHandler) Register(c *fiber.Ctx) error {
 		})
 }
 
+// Login godoc
+// @Summary User Login
+// @Description Logs in a user and returns a JWT token.
+// @Tags Users
+// @Accept json
+// @Produce json
+// @Param request body model.LoginUserRequest true "User Login Request"
+// @Success 200 {object} model.TokenResponse
+// @Router /users/login [post]
 func (h *UserHandler) Login(c *fiber.Ctx) error {
 	loginUserRequest := new(model.LoginUserRequest)
 	if err := c.BodyParser(loginUserRequest); err != nil {
@@ -58,6 +76,14 @@ func (h *UserHandler) Login(c *fiber.Ctx) error {
 		})
 }
 
+// Current godoc
+// @Summary Get Current User
+// @Description Retrieves the currently logged-in user's information.
+// @Tags Users
+// @Produce json
+// @Success 200 {object} model.UserResponse
+// @Security BearerAuth
+// @Router /users/current [get]
 func (h *UserHandler) Current(c *fiber.Ctx) error {
 	auth := c.Locals("auth").(*model.Auth)
 
@@ -73,6 +99,16 @@ func (h *UserHandler) Current(c *fiber.Ctx) error {
 		})
 }
 
+// Update godoc
+// @Summary Update Current User
+// @Description Updates the currently logged-in user's profile.
+// @Tags Users
+// @Accept json
+// @Produce json
+// @Param request body model.UpdateUserRequest true "User Update Request"
+// @Success 200 {object} model.UserResponse
+// @Security BearerAuth
+// @Router /users/current [patch]
 func (h *UserHandler) Update(c *fiber.Ctx) error {
 	auth := c.Locals("auth").(*model.Auth)
 

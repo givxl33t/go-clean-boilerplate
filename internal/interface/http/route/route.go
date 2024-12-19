@@ -7,7 +7,6 @@ import (
 
 func RegisterRoute(app *fiber.App, userHandler *handler.UserHandler, authMiddleware fiber.Handler) {
 	prefixRouter := app.Group("/api/v1")
-
 	prefixRouter.Post("/users", userHandler.Register)
 	prefixRouter.Post("/users/login", userHandler.Login)
 	prefixRouter.Get("/users/current", authMiddleware, userHandler.Current)
