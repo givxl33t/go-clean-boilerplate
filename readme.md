@@ -10,6 +10,7 @@ This boilerplate includes the following libraries and tools:
 - [**Testify**](https://github.com/stretchr/testify) – Toolkit for assertions in tests.
 - [**Validator**](https://github.com/go-playground/validator) – Struct and field validation library.
 - [**Migrate**](https://github.com/golang-migrate/migrate) – Database migration tool.
+- [**Swag**](https://github.com/swaggo/swag) – API documentation generator.
 
 ## Project Structure
 This project follows a modular and clean project structure. Below is an explanation of its directory structure:
