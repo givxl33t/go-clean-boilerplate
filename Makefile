@@ -17,8 +17,12 @@ ENV_LOCAL_TEST=\
 build:
 				go build -o fiber-app ./cmd/web
 
+swagger.generate:
+				swag init -g cmd/web/main.go
+
 test.unit:
 				APP_ENV=test go test ./test/unit -v -coverprofile=./coverage/unit-coverage.out -coverpkg=github.com/givxl33t/go-fiber-boilerplate/internal/...
+
 test.integration:
 				APP_ENV=test $(ENV_LOCAL_TEST) go test ./test/integration -v -coverprofile=./coverage/integration-coverage.out -coverpkg=github.com/givxl33t/go-fiber-boilerplate/internal/...
 
